@@ -28,6 +28,7 @@ My journey into cybersecurity from zero: Linux, networking, SOC — writeups wit
 - [Cryptography & PKI](theory/cryptography.md)
 - [Secure network](theory/secure-network.md)
 - [Authentication & access control](theory/access-control.md)
+- [Endpoint security](theory/endpoint-security.md)
 
 ---
 
