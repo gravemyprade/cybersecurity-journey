@@ -15,6 +15,7 @@ My journey into cybersecurity from zero: Linux, networking, SOC — writeups wit
 - [**Lab 1 — Segmented office network**](networking/packet-tracer-labs/lab1-office-network) — VLANs, inter-VLAN routing, DHCP, DNS
 - [**Lab 2 — Secure home network**](networking/packet-tracer-labs/lab2-secure-home-network) — Wi-Fi hardening + threat model
 - [**Lab 3 — Network perimeter**](networking/packet-tracer-labs/lab3-nat-acl-syslog) — NAT, ACL, Syslog
+- [**Lab 4 — Layer 2 hardening**](networking/packet-tracer-labs/lab4-layer2-hardening) — Port Security, DHCP Snooping, BPDU Guard
 
 ### 🐧 Linux
 - [**OverTheWire — Bandit**](linux/overthewire-bandit) — Linux CLI wargame, levels 0–33
