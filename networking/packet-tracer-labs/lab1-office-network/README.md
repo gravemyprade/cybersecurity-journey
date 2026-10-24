@@ -18,7 +18,7 @@
 
 Три відділи, кожен — окремий VLAN і підмережа /24. Один комутатор несе всі три VLAN; один транк-лінк до роутера забезпечує маршрутизацію між VLAN (router-on-a-stick).
 
-📷 *`00-topology.png`*
+![Топологія](00-topology.png)
 
 | VLAN | Відділ | Підмережа | Шлюз | Статичні хости | Діапазон DHCP |
 |------|--------|-----------|------|----------------|---------------|
@@ -37,7 +37,7 @@
 - Fa0/1–3 → VLAN 10 (access) · Fa0/4–6 → VLAN 20 (access) · Fa0/7–9 → VLAN 30 (access)
 - Gig0/1 → trunk (802.1Q) до роутера Gig0/0/0
 
-📷 *`01-switch-show-vlan-brief.png`*
+![show vlan brief](01-switch-show-vlan-brief.png)
 
 ---
 
@@ -68,7 +68,7 @@ interface g0/0/0.10
 ```
 *На фізичному інтерфейсі IP немає — уся адресація живе на субінтерфейсах. Це і є суть ROAS.*
 
-📷 *`02-router-subinterfaces-up.png`*
+![Субінтерфейси роутера (up)](02-router-subinterfaces-up.png)
 
 ### DHCP (на роутері)
 По одному пулу на VLAN. DHCP на Cisco-роутері роздає всю підмережу *мінус* виключені адреси — тому шлюз і статичні хости виключені, а решта роздається.
@@ -84,7 +84,7 @@ ip dhcp pool ACCOUNTING
  dns-server 192.168.3.2                            (повторити на кожен VLAN)
 ```
 
-📷 *`03-router-dhcp-config.png`*
+![DHCP-конфіг на роутері](03-router-dhcp-config.png)
 
 ### Сервер (VLAN IT)
 Статична `192.168.3.2`, шлюз `192.168.3.1`, DNS вказує сам на себе. Увімкнув **HTTP** (дефолтна сторінка) і **DNS** із записом A: `www.lab.local → 192.168.3.2`.
@@ -100,7 +100,10 @@ ip dhcp pool ACCOUNTING
 | 3 | Вебсторінка відкривається за іменем (DNS→IP) | ✅ `http://www.lab.local` віддано |
 | 4 | Матриця пінгів (хто кого дістає) | ✅ кожен VLAN дістає кожного |
 
-📷 *`04-intervlan-ping-success.png` · `05-dns-http-by-name.png` · `06-…` · `07-…`*
+![Inter-VLAN ping — успіх](04-intervlan-ping-success.png)
+![DNS/HTTP за іменем](05-dns-http-by-name.png)
+![Ping: accounting → management](06-ping-accounting-to-management.png)
+![Ping: management → accounting](07-ping-management-to-accounting.png)
 
 ---
 
